@@ -73,12 +73,17 @@ def move_robot():
 def set_pid():
     global use_pid, kp, ki, kd
     use_pid = int(request.args.get("use_pid"))
+    left_value = left_encoder.value
+    right_value = right_encoder.value
+    # Return the values as a JSON response
+    # return {"left_encoder": left_value, "right_encoder": right_value}
     if use_pid:
         kp, ki, kd = (
             float(request.args.get("kp")),
             float(request.args.get("ki")),
             float(request.args.get("kd")),
         )
+        print("left_encoder: " + left_value + "," + "right_encoder: " + right_value)
         return "Using PID"
     else:
         return "Not using PID"
