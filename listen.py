@@ -83,7 +83,6 @@ def set_pid():
             float(request.args.get("ki")),
             float(request.args.get("kd")),
         )
-        print("left_encoder: " + left_value + "," + "right_encoder: " + right_value)
         return "Using PID"
     else:
         return "Not using PID"
